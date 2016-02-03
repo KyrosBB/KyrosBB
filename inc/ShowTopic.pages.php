@@ -24,7 +24,7 @@
   }
   if($continue) {
     $wrapper->breadcrumbs = array(
-      array(false,"/?act=ST&id={$topic["i"]}","{$topic["b"]}")
+      array(false,"?act=ST&id={$topic["i"]}","{$topic["b"]}")
     );
     $posts = array();
     if($result = $db->query("SELECT * FROM p WHERE a='{$id}' ORDER BY i ASC")) {

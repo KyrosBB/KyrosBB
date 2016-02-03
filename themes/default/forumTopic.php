@@ -1,5 +1,5 @@
 <div class='text-right'>
-  <a href='<?php echo $site_dir; ?>/?act=reply&id=<?php echo $topic_id; ?>' class='btn btn-primary'>New Reply</a>
+  <a href='<?php echo $site_dir; ?>?act=reply&id=<?php echo $topic_id; ?>' class='btn btn-primary'>New Reply</a>
 </div>
 <br />
 <div class='panel panel-default'>

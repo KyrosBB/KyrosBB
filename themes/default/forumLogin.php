@@ -1,4 +1,4 @@
-<form action='<?php echo $site_dir; ?>/' method='post'>
+<form action='<?php echo $site_dir; ?>' method='post'>
   <input type='hidden' name='act' value='login'>
   <div class='panel panel-default'>
     <div class='panel-heading'>

@@ -9,7 +9,7 @@
               <li class='list-group-item'>
                 <div class='row'>
                   <div class='col-md-7'>
-                    <a href='<?php echo $site_dir; ?>/?act=ST&id=<?php echo $topic["id"]; ?>'>
+                    <a href='<?php echo $site_dir; ?>?act=ST&id=<?php echo $topic["id"]; ?>'>
                       <strong><?php echo $topic["name"]; ?></strong>
                     </a>
                   </div>

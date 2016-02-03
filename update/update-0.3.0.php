@@ -1,8 +1,8 @@
 <?php
 
   // 0.2.1 to 0.3.0
-
-  include("inc/config.class.php");
+  $root = "../";
+  include("../inc/config.class.php");
   $build = substr(getcwd(), strlen($_SERVER["DOCUMENT_ROOT"]));
   $config = new Config;
   $config->load();

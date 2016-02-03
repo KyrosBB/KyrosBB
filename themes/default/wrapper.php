@@ -31,7 +31,7 @@
             </a>
             <ul class='dropdown-menu'>
               <li>
-                <a href='<?php echo $site_dir; ?>/?act=login'>Log In</a>
+                <a href='<?php echo $site_dir; ?>?act=login'>Log In</a>
               </li>
               <li>
                 <a href='#'>Register</a>
@@ -74,7 +74,7 @@
       <div class='row'>
         <div class='col-md-12'>
           <div class='text-right'>
-            Powered by <a href='http://www.avestri.co'>KyrosBB</a> v0.3.0
+            Powered by <a href='http://www.avestri.co'>KyrosBB</a> v0.3.1
           </div>
         </div>
       </div>

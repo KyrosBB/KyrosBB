@@ -1,4 +1,6 @@
 <?php
+  // Due to the config class being used by the updater... we need a $root...
+  $root = "./";
   include("inc/config.class.php");
   include("inc/template.class.php");
   include("inc/user.class.php");
