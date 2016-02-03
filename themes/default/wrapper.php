@@ -17,7 +17,7 @@
     <div class='container'>
       <div class='row'>
         <div class='col-md-3'>
-          <a class='btn btn-default' href='<?php echo $site_dir; ?>?act=newtopic'>
+          <a class='btn btn-primary btn-block' href='<?php echo $site_dir; ?>?act=newtopic'>
             New Topic
           </a>
         </div>
