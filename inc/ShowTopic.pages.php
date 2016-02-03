@@ -29,6 +29,7 @@
     $posts = array();
     if($result = $db->query("SELECT * FROM p WHERE a='{$id}' ORDER BY i ASC")) {
       while($row = $result->fetch_array()) {
+        $row["b"] = htmlspecialchars($row["b"]);
         $posts[] = $row;
       }
     }
