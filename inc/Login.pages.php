@@ -1,4 +1,8 @@
 <?php
+  if($session->user->id >= 1) {
+    unset($_SESSION["username"]);
+    unset($_SESSION["password"]);
+  }
   $html = new Template;
   $html->site_dir = $config->site_dir;
   $form = false;
