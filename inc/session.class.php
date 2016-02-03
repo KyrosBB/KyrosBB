@@ -4,6 +4,13 @@
     function __construct() {
       session_start();
     }
+    function update_activity() {
+      global $db;
+      $sql = "UPDATE users SET activity='". time() ."' WHERE id=". $this->user->id;
+      if(!$result = $db->query($sql)) {
+        die($db->error);
+      }
+    }
     function authorize() {
       global $db;
       if(isset($_SESSION["username"]) && isset($_SESSION["password"])) {
@@ -18,6 +25,7 @@
             if($_SESSION["password"] == md5($test->password)) {
               $this->user = new User;
               $this->user->generate($test);
+              $this->update_activity();
             } else {
               unset($_SESSION["username"]);
               unset($_SESSION["password"]);

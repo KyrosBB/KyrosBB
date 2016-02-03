@@ -31,8 +31,22 @@
     while($row = $result->fetch_object()) {
       $categories[] = $row;
     }
+  } else {
+    die($db->error);
   }
   $wrapper->categories = $categories;
+  $active = array();
+  $active_timeout = (time() - (60*15));
+  if($result = $db->query("SELECT * FROM users WHERE activity > {$active_timeout}")) {
+    while($row = $result->fetch_object()) {
+      $tmp = new User;
+      $tmp->generate($row);
+      $active[] = $tmp;
+    }
+  } else {
+    die($db->error);
+  }
+  $wrapper->active = $active;
 
   $act = isset($_GET["act"]) ? $_GET["act"] : "idx";
   $act = isset($_POST["act"]) ? $_POST["act"] : $act;

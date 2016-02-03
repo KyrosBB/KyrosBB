@@ -64,6 +64,18 @@
   }
 ?>
           </ol>
+          <div class='panel panel-default'>
+            <div class='panel-heading'>
+              Online Users
+            </div>
+            <div class='panel-body'>
+<?php
+  foreach($active as $activeUser) {
+    echo $activeUser->generate_avatar(25);
+  }
+?>
+            </div>
+          </div>
         </div>
         <div class='col-md-9'>
           <ol class='breadcrumb'>
