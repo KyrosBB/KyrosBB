@@ -27,7 +27,9 @@
   $sql .= " ORDER BY i DESC";
   if($result = $db->query($sql)) {
     while($row = $result->fetch_object()) {
-      $topics[] = array("id"=>$row->i,"name"=>$row->b);
+      if($session->user->permissions->category_view($row->cat)) {
+        $topics[] = array("id"=>$row->i,"name"=>$row->b);
+      }
     }
   }
   $html->topics = $topics;

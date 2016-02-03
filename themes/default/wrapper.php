@@ -34,7 +34,7 @@
                 <a href='<?php echo $site_dir; ?>?act=login'>Log In</a>
               </li>
               <li>
-                <a href='#'>Register</a>
+                <a href='<?php echo $site_dir; ?>?act=register'>Register</a>
               </li>
             </ul>
           </li>

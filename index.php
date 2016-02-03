@@ -55,6 +55,7 @@
     "idx"       => "BoardIndex",
     "login"     => "Login",
     "newtopic"  => "PostTopic",
+    "register"  => "Register",
     "reply"     => "PostReply",
     "ST"        => "ShowTopic"
   );
