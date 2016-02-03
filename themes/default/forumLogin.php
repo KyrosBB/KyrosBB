@@ -11,7 +11,7 @@
       </div>
       <div class='form-group'>
         <label for='inputUsername'>Password:</label>
-        <input type='text' class='form-control' id='inputPassword' name='inputPassword'>
+        <input type='password' class='form-control' id='inputPassword' name='inputPassword'>
       </div>
     </div>
     <div class='panel-footer text-center'>
