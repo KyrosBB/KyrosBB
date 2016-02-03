@@ -8,6 +8,23 @@
     if(!$username||!$password||$username==""||$password=="") {
       $form = true;
     } else {
+      $username = $db->real_escape_string($username);
+      if(!$result = $db->query("SELECT * FROM users WHERE username='{$username}'")) {
+        die($db->error);
+      }
+      if($result->num_rows !== 1) {
+        $form = true;
+      } else {
+        $test = $result->fetch_object();
+        if(md5($password) == $test->password) {
+          $_SESSION["username"] = $username;
+          $_SESSION["password"] = md5(md5($password));
+          $wrapper->breadcrumbs = array(array(true,"","Logged In"));
+          $wrapper->content = $html->render("{$themedir}forumLoggedIn.php");
+        } else {
+          $form = true;
+        }
+      }
     }
   } else {
     $form = true;

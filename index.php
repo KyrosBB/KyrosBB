@@ -2,6 +2,8 @@
   include("inc/config.class.php");
   include("inc/template.class.php");
   include("inc/user.class.php");
+  include("inc/session.class.php");
+  $session = new Session;
   $config = new Config;
   $config->load();
   $db = new mysqli(
@@ -13,11 +15,13 @@
   if($db->connect_error) {
     die($db->connect_error);
   }
+  $session->authorize();
 
   $themedir = "themes/default/";
   $wrapper = new Template;
   $wrapper->site_name = $config->site_name;
   $wrapper->site_dir = $config->site_dir;
+  $wrapper->user = $session->user;
 
   $act = isset($_GET["act"]) ? $_GET["act"] : "idx";
   $act = isset($_POST["act"]) ? $_POST["act"] : $act;

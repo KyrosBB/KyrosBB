@@ -16,5 +16,11 @@
       $build .= ">";
       return $build;
     }
+    function generate($ref) {
+      $this->email    = $ref->email;
+      $this->id       = $ref->id;
+      $this->gravatar = md5(strtolower(trim($ref->email)));
+      $this->username = $ref->username;
+    }
   }
 ?>

@@ -26,6 +26,9 @@
               <li>
                 <a href='<?php echo $site_dir; ?>/?act=login'>Log In</a>
               </li>
+              <li>
+                <a href='#'>Register</a>
+              </li>
             </ul>
           </li>
 <?php
