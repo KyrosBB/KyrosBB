@@ -16,6 +16,13 @@
         <ul class='nav navbar-nav navbar-right'>
 <?php
   if($user->id !== 0) {
+?>
+          <li class='dropdown'>
+            <a href='#' class='dropdown-toggle' data-toggle='dropdown'>
+              <?php echo $user->username; ?> <span class='caret'></span>
+            </a>
+          </li>
+<?php
   } else {
 ?>
           <li class='dropdown'>
