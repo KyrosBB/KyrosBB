@@ -9,8 +9,22 @@
   <table class='table'>
     <?php foreach($posts as $post) { ?>
     <tr>
-      <td></td>
-      <td>
+      <td class='col-md-2 text-center'>
+<?php
+  if($post["author"]->avatar_type == 1) {
+    echo $post["author"]->get_gravatar(array("class"=>"img-thumbnail"));
+  }
+?>
+        <br />
+<?php
+  if($post["author"]->id !== 0) {
+    
+  } else {
+    echo $post["author"]->username;
+  }
+?>
+      </td>
+      <td class='col-md-10'>
         <?php echo $post["b"]; ?>
       </td>
     </tr>

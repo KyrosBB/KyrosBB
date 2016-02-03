@@ -1,6 +1,7 @@
 <?php
   include("inc/config.class.php");
   include("inc/template.class.php");
+  include("inc/user.class.php");
   $config = new Config;
   $config->load();
   $db = new mysqli(
