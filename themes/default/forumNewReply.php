@@ -1,4 +1,4 @@
-<form action='<?php echo $site_dir; ?>' method='post'>
+<form action='<?php echo $site_dir; ?>/' method='post'>
   <input type='hidden' name='act' value='reply'>
   <input type='hidden' name='id' value='<?php echo $topic_id; ?>'>
   <div class='panel panel-default'>
