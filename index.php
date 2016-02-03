@@ -24,6 +24,7 @@
 
   $choices = array(
     "idx"       => "BoardIndex",
+    "login"     => "Login",
     "newtopic"  => "PostTopic",
     "reply"     => "PostReply",
     "ST"        => "ShowTopic"

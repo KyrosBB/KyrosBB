@@ -13,6 +13,25 @@
             <?php echo $site_name; ?>
           </a>
         </div>
+        <ul class='nav navbar-nav navbar-right'>
+<?php
+  if($user->id !== 0) {
+  } else {
+?>
+          <li class='dropdown'>
+            <a href='#' class='dropdown-toggle' data-toggle='dropdown'>
+              <?php echo $user->username; ?> <span class='caret'></span>
+            </a>
+            <ul class='dropdown-menu'>
+              <li>
+                <a href='<?php echo $site_dir; ?>/?act=login'>Log In</a>
+              </li>
+            </ul>
+          </li>
+<?php
+  }
+?>
+        </ul>
       </div>
     </div>
     <div class='container'>
