@@ -5,6 +5,7 @@
   include("inc/template.class.php");
   include("inc/user.class.php");
   include("inc/session.class.php");
+  include("inc/permission.class.php");
   $session = new Session;
   $config = new Config;
   $config->load();
@@ -18,12 +19,20 @@
     die($db->connect_error);
   }
   $session->authorize();
+  $session->user->permissions = new Permissions($session->user->perms);
 
   $themedir = "themes/default/";
   $wrapper = new Template;
   $wrapper->site_name = $config->site_name;
   $wrapper->site_dir = $config->site_dir;
   $wrapper->user = $session->user;
+  $categories = array();
+  if($result = $db->query("SELECT * FROM categories")) {
+    while($row = $result->fetch_object()) {
+      $categories[] = $row;
+    }
+  }
+  $wrapper->categories = $categories;
 
   $act = isset($_GET["act"]) ? $_GET["act"] : "idx";
   $act = isset($_POST["act"]) ? $_POST["act"] : $act;

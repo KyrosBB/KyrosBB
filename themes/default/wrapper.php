@@ -50,6 +50,20 @@
           <a class='btn btn-primary btn-block' href='<?php echo $site_dir; ?>?act=newtopic'>
             New Topic
           </a>
+          <br />
+          <ol class='list-group'>
+<?php
+  foreach($categories as $cat) {
+    if($user->permissions->category_view($cat->id)) {
+?>
+          <li class='list-group-item'>
+            <a href='<?php echo $site_dir; ?>?cat=<?php echo $cat->id; ?>'><?php echo $cat->name; ?></a>
+          </li>
+<?php
+    }
+  }
+?>
+          </ol>
         </div>
         <div class='col-md-9'>
           <ol class='breadcrumb'>
