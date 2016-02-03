@@ -21,7 +21,7 @@
   $act = isset($_GET["act"]) ? $_GET["act"] : "idx";
   $act = isset($_POST["act"]) ? $_POST["act"] : $act;
 
-  $choices = array("idx"=>"BoardIndex","newtopic"=>"PostTopic","ST"=>"ShowTopic");
+  $choices = array("idx"=>"BoardIndex","newtopic"=>"PostTopic","ST"=>"ShowTopic","reply"=>"forumNewReply");
   if(!array_key_exists($act, $choices)) {
     $act = "idx";
   }
