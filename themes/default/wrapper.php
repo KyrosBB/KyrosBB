@@ -3,11 +3,12 @@
   <head>
     <title><?php echo $site_name; ?></title>
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
+    <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
   </head>
   <body>
     <div class='navbar navbar-default navbar-static-top'>
       <div class='container'>
-        <div class='navbar-heading'>
+        <div class='navbar-header'>
           <a href='<?php echo $site_dir; ?>' class='navbar-brand'>
             <?php echo $site_name; ?>
           </a>
@@ -49,5 +50,6 @@
         </div>
       </div>
     </div>
+    <script src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'></script>
   </body>
 </html>
