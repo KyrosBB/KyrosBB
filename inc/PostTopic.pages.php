@@ -1,16 +1,22 @@
 <?php
   $html = new Template;
   $html->site_dir = $config->site_dir;
+  $html->user = $session->user;
+  $html->categories = $wrapper->categories;
   $form = false;
   if($_SERVER["REQUEST_METHOD"] == "POST") {
     $ptitle = isset($_POST["inputTitle"]) ? $_POST["inputTitle"] : false;
     $pcontent = isset($_POST["inputContent"]) ? $_POST["inputContent"] : false;
+    $pcat = isset($_POST["inputCategory"]) ? $_POST["inputCategory"] : false;
+    $pcat = intval($pcat);
     if(!$ptitle||!$pcontent||$ptitle==""||$pcontent=="") {
+      $form = true;
+    } else if(!$session->user->permissions->category_createTopic($pcat)) {
       $form = true;
     } else {
       $ptitle = $db->real_escape_string($ptitle);
       $pcontent = $db->real_escape_string($pcontent);
-      if(!$result = $db->query("INSERT INTO t(b) VALUES('{$ptitle}');")) {
+      if(!$result = $db->query("INSERT INTO t(cat,b) VALUES('{$pcat}','{$ptitle}');")) {
         die($db->error);
       }
       $tid = $db->insert_id;

@@ -12,7 +12,7 @@
       <td class='col-md-2 text-center'>
 <?php
   if($post["author"]->avatar_type == 1) {
-    echo $post["author"]->get_gravatar(array("class"=>"img-thumbnail"));
+    echo $post["author"]->get_gravatar(75,array("class"=>"img-thumbnail"));
   }
 ?>
         <br />

@@ -38,6 +38,13 @@
       return $return;;
     }
     function category_createTopic($id) {
+      $return = false;
+      foreach($this->cat_can_post as $cid => $perm) {
+        if($cid == "*" || $cid == $id) {
+          $return = $perm;
+        }
+      }
+      return $return;
     }
     function category_replyTopic($id) {
     }

@@ -6,6 +6,20 @@
     </div>
     <div class='panel-body'>
       <div class='form-group'>
+        <label for='inputCategory'>Category:</label>
+        <select class='form-control' id='inputCategory' name='inputCategory'>
+<?php
+ foreach($categories as $cat) {
+   if($user->permissions->category_createTopic($cat->id)) {
+?>
+          <option value='<?php echo $cat->id; ?>'><?php echo $cat->name; ?></option>
+<?php
+   }
+ }
+?>
+        </select>
+      </div>
+      <div class='form-group'>
         <label for='inputTitle'>Topic Title:</label>
         <input type='text' class='form-control' id='inputTitle' name='inputTitle'>
       </div>
