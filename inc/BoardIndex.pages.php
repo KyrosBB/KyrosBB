@@ -28,7 +28,9 @@
   if($result = $db->query($sql)) {
     while($row = $result->fetch_object()) {
       if($session->user->permissions->category_view($row->cat)) {
-        $topics[] = array("id"=>$row->i,"name"=>$row->b);
+        $author = new User;
+        $author->load($row->aid);
+        $topics[] = array("id"=>$row->i,"name"=>$row->b,"author"=>$author);
       }
     }
   }

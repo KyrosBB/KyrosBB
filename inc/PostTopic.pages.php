@@ -16,7 +16,7 @@
     } else {
       $ptitle = $db->real_escape_string($ptitle);
       $pcontent = $db->real_escape_string($pcontent);
-      if(!$result = $db->query("INSERT INTO t(cat,b) VALUES('{$pcat}','{$ptitle}');")) {
+      if(!$result = $db->query("INSERT INTO t(cat,b,aid) VALUES('{$pcat}','{$ptitle}','{$session->user->id}');")) {
         die($db->error);
       }
       $tid = $db->insert_id;

@@ -30,5 +30,14 @@
         return $this->get_gravatar($size,$extra);
       }
     }
+    function load($id) {
+      global $db;
+      if($result = $db->query("SELECT id,username FROM users WHERE id='{$id}'")) {
+        while($row = $result->fetch_object()) {
+          $this->id       = $row->id;
+          $this->username = $row->username;
+        }
+      }
+    }
   }
 ?>
