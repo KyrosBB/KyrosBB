@@ -16,13 +16,7 @@
   }
 ?>
         <br />
-<?php
-  if($post["author"]->id !== 0) {
-    
-  } else {
-    echo $post["author"]->username;
-  }
-?>
+        <?php echo $post["author"]->username; ?>
       </td>
       <td class='col-md-10'>
         <?php echo $post["b"]; ?>

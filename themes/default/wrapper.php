@@ -100,7 +100,7 @@
       <div class='row'>
         <div class='col-md-12'>
           <div class='text-right'>
-            Powered by <a href='http://www.avestri.co'>KyrosBB</a> v0.3.1
+            Powered by <a href='http://www.avestri.co'>KyrosBB</a> v0.4.0
           </div>
         </div>
       </div>

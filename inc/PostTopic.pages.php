@@ -20,7 +20,7 @@
         die($db->error);
       }
       $tid = $db->insert_id;
-      if(!$result = $db->query("INSERT INTO p(a,b) VALUES('{$tid}','{$pcontent}');")) {
+      if(!$result = $db->query("INSERT INTO p(a,b,aid) VALUES('{$tid}','{$pcontent}','{$session->user->id}');")) {
         die($db->error);
       }
       $wrapper->breadcrumbs = array(array(true,"","Topic created"));

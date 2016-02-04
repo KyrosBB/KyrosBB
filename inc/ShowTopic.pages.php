@@ -30,10 +30,8 @@
     if($result = $db->query("SELECT * FROM p WHERE a='{$id}' ORDER BY i ASC")) {
       while($row = $result->fetch_array()) {
         $row["b"] = htmlspecialchars($row["b"]);
-        
-        // Fix this later, right now, return a generic guest ghost.
         $row["author"] = new User;
-        
+        $row["author"]->load($row["aid"]);
         $posts[] = $row;
       }
     }

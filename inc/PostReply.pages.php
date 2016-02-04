@@ -31,7 +31,7 @@
         $form = true;
       } else {
         $pcontent = $db->real_escape_string($pcontent);
-        if(!$result = $db->query("INSERT INTO p(a,b) VALUES('{$topic["i"]}','{$pcontent}');")) {
+        if(!$result = $db->query("INSERT INTO p(a,b,aid) VALUES('{$topic["i"]}','{$pcontent}','{$session->user->id});")) {
           die($db->error);
         }
         $wrapper->breadcrumbs = array(array(true,"","Reply posted"));
