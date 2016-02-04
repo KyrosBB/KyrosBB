@@ -1,4 +1,12 @@
 <?php
+  include("asset/class/kyros.php");
+  $kyros = new Kyros;
+
+  foreach(glob("hooks/*.php") as $file) {
+    include($file);
+  }
+
+
   include("inc/config.class.php");
   include("inc/template.class.php");
   include("inc/user.class.php");
@@ -49,18 +57,7 @@
   $act = isset($_GET["act"]) ? $_GET["act"] : "idx";
   $act = isset($_POST["act"]) ? $_POST["act"] : $act;
 
-  $choices = array(
-    "idx"       => "BoardIndex",
-    "login"     => "Login",
-    "newtopic"  => "PostTopic",
-    "register"  => "Register",
-    "reply"     => "PostReply",
-    "ST"        => "ShowTopic"
-  );
-  if(!array_key_exists($act, $choices)) {
-    $act = "idx";
-  }
-  include("inc/{$choices[$act]}.pages.php");
+  include("inc/". $kyros->get_act($act) .".php");
 
   echo $wrapper->render("{$themedir}wrapper.php");
 ?>
