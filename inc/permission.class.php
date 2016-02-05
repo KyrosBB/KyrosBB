@@ -35,7 +35,7 @@
           $return = $perm;
         }
       }
-      return $return;;
+      return $return;
     }
     function category_createTopic($id) {
       $return = false;
