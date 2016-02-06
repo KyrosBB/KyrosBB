@@ -57,7 +57,7 @@
   $act = isset($_GET["act"]) ? $_GET["act"] : "idx";
   $act = isset($_POST["act"]) ? $_POST["act"] : $act;
 
-  include("inc/". $kyros->get_act($act) .".php");
+  include($kyros->get_act($act) .".php");
 
   echo $wrapper->render("{$themedir}wrapper.php");
 ?>
