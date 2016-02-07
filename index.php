@@ -29,6 +29,7 @@
   }
   $session->authorize();
   $session->user->permissions = new Permissions($session->user->perms);
+  $wrapper->hooks = $hooks;
 
   $themedir = "themes/default/";
   $wrapper = new Template;
