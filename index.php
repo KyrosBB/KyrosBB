@@ -1,8 +1,10 @@
 <?php
   include("asset/class/kyros.php");
+  include("asset/class/hooks.php");
   $kyros = new Kyros;
+  $hooks = new Hooks;
 
-  foreach(glob("hooks/*.php") as $file) {
+  foreach(glob("hooks/*.hook.php") as $file) {
     include($file);
   }
 
