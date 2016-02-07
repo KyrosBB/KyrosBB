@@ -46,13 +46,13 @@
   $act = isset($_POST["act"]) ? $_POST["act"] : $act;
   include($kyros->get_act($act) .".php");
   $wrapper->user = $session->user;
-  if($session->user->permissions->admin["view"]) {
+  if($session->user->permissions->admin["view"] == "true") {
     $tmp = new Template;
     $tmp->site_dir = $config->site_dir;
     $wrapper->admin_button = $tmp->render($kyros->theme_dir ."sidebar/ad_button.php");
     unset($tmp);
   }
-  if($session->user->permissions->category_view_count() >= 1) {
+  if($session->user->permissions->category_post_count() >= 1) {
     $tmp = new Template;
     $tmp->site_dir = $config->site_dir;
     $wrapper->topic_button = $tmp->render($kyros->theme_dir ."sidebar/nt_button.php");

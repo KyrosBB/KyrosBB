@@ -11,7 +11,7 @@
     $pcat = intval($pcat);
     if(!$ptitle||!$pcontent||$ptitle==""||$pcontent=="") {
       $form = true;
-    } else if(!$session->user->permissions->post_category($pcat)) {
+    } else if($session->user->permissions->post_category($pcat) == "false") {
       $form = true;
     } else {
       $ptitle = $db->real_escape_string($ptitle);

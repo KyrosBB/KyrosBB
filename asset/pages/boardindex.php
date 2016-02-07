@@ -10,7 +10,7 @@
   } else {
     foreach($wrapper->categories as $cat) {
       if($cat->id == $cid) {
-        if($session->user->permissions->view_category($cid)) {
+        if($session->user->permissions->view_category($cid) == "true") {
           $crumbs[] = array(false,"?cat={$cid}",$cat->name);
           $sql .= " WHERE cat='{$cid}'";
         }
@@ -23,7 +23,7 @@
   $sql .= " ORDER BY i DESC";
   if($result = $db->query($sql)) {
     while($row = $result->fetch_object()) {
-      if($session->user->permissions->view_category($row->cat)) {
+      if($session->user->permissions->view_category($row->cat) == "true") {
         $author = new User;
         $author->load($row->aid);
         $topics[] = array("id"=>$row->i,"name"=>$row->b,"author"=>$author);

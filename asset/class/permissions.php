@@ -55,10 +55,10 @@
       }
       return $return;
     }
-    function category_view_count() {
+    function category_post_count() {
       $i = 0;
       foreach($this->category as $v) {
-        if($v["view"] == true) {
+        if($v["post"] == "true") {
           $i++;
         }
       }

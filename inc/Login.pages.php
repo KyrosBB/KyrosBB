@@ -2,6 +2,9 @@
   if($session->user->id >= 1) {
     unset($_SESSION["username"]);
     unset($_SESSION["password"]);
+    $session->user = new User;
+    $session->user->permissions = new Permissions;
+    $session->user->permissions->load(0);
   }
   $html = new Template;
   $html->site_dir = $config->site_dir;
@@ -24,7 +27,7 @@
           $_SESSION["username"] = $username;
           $_SESSION["password"] = md5(md5($password));
           $wrapper->breadcrumbs = array(array(true,"","Logged In"));
-          $wrapper->content = $html->render("{$themedir}forumLoggedIn.php");
+          $wrapper->content = $html->render($kyros->theme_dir ."forumLoggedIn.php");
         } else {
           $form = true;
         }
@@ -35,6 +38,6 @@
   }
   if($form) {
     $wrapper->breadcrumbs = array(array(true,"","Log In"));
-    $wrapper->content = $html->render("{$themedir}forumLogin.php");
+    $wrapper->content = $html->render($kyros->theme_dir ."forumLogin.php");
   }
 ?>

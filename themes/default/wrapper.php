@@ -21,6 +21,11 @@
             <a href='#' class='dropdown-toggle' data-toggle='dropdown'>
               <?php echo $user->username; ?> <span class='caret'></span>
             </a>
+            <ul class='dropdown-menu'>
+              <li>
+                <a href='<?php echo $site_dir; ?>?act=login'>Log Out</a>
+              </li>
+            </ul>
           </li>
 <?php
   } else {
@@ -52,7 +57,7 @@
           <ol class='list-group'>
 <?php
   foreach($categories as $cat) {
-    if($user->permissions->view_category($cat->id)) {
+    if($user->permissions->view_category($cat->id) == "true") {
 ?>
           <li class='list-group-item'>
             <a href='<?php echo $site_dir; ?>?cat=<?php echo $cat->id; ?>'><?php echo $cat->name; ?></a>
