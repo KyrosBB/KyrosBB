@@ -10,7 +10,7 @@
   } else {
     foreach($wrapper->categories as $cat) {
       if($cat->id == $cid) {
-        if($session->user->permissions->category_view($cid)) {
+        if($session->user->permissions->view_category($cid)) {
           $crumbs[] = array(false,"?cat={$cid}",$cat->name);
           $sql .= " WHERE cat='{$cid}'";
         }
