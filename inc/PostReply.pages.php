@@ -8,7 +8,7 @@
   if(!$id||$id<1) {
     $wrapper->breadcrumbs = array(array(true,"","Error"));
     $html->message = "An ID must be a valid integer greater than or equal to 1.";
-    $wrapper->content = $html->render("{$themedir}/error.php");
+    $wrapper->content = $html->render($kyros->theme_dir ."error.php");
     $continue = false;
   }
   if($continue) {
@@ -18,7 +18,7 @@
     if($result->num_rows < 1) {
       $wrapper->breadcrumbs = array(array(true,"","Error"));
       $html->message = "Cannot reply to a non-existant topic.";
-      $wrapper->content = $html->render("{$themedir}/error.php");
+      $wrapper->content = $html->render($kyros->theme_dir ."error.php");
       $continue = false;
     } else {
       $topic = $result->fetch_array();
@@ -31,13 +31,13 @@
         $form = true;
       } else {
         $pcontent = $db->real_escape_string($pcontent);
-        if(!$result = $db->query("INSERT INTO p(a,b,aid) VALUES('{$topic["i"]}','{$pcontent}','{$session->user->id});")) {
+        if(!$result = $db->query("INSERT INTO p(a,b,aid) VALUES('{$topic["i"]}','{$pcontent}','{$session->user->id}');")) {
           die($db->error);
         }
         $wrapper->breadcrumbs = array(array(true,"","Reply posted"));
         $html->pushTitle = $topic["b"];
         $html->pushID = $topic["i"];
-        $wrapper->content = $html->render("{$themedir}forumReplyCreated.php");
+        $wrapper->content = $html->render($kyros->theme_dir ."forumReplyCreated.php");
       }
     } else {
       $form = true;
@@ -50,6 +50,6 @@
     );
     $html->topic_id = $topic["i"];
     $html->topic_name = $topic["b"];
-    $wrapper->content = $html->render("{$themedir}forumNewReply.php");
+    $wrapper->content = $html->render($kyros->theme_dir ."forumNewReply.php");
   }
 ?>
