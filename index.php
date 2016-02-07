@@ -3,6 +3,8 @@
   include("asset/class/hooks.php");
   include("asset/class/config.php");
   include("asset/class/session.php");
+  include("asset/class/template.php");
+  include("asset/class/user.php");
   $kyros = new Kyros;
   $hooks = new Hooks;
   $config = new Config;
@@ -15,8 +17,6 @@
   }
 
 
-  include("inc/template.class.php");
-  include("inc/user.class.php");
   include("inc/permission.class.php");
   $db = new mysqli(
     $config->sql_hostname,
