@@ -55,5 +55,14 @@
       }
       return $return;
     }
+    function category_view_count() {
+      $i = 0;
+      foreach($this->category as $v) {
+        if($v["view"] == true) {
+          $i++;
+        }
+      }
+      return $i;
+    }
   }
 ?>

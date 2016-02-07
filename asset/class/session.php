@@ -9,7 +9,7 @@
       unset($_SESSION["password"]);
     }
     function authorize() {
-      global $db;
+      global $db,$hooks;
       $this->user = new User;
       if(isset($_SESSION["username"]) && isset($_SESSION["password"])) {
         $t = $db->real_escape_string($_SESSION["username"]);
@@ -28,6 +28,7 @@
           die($db->error);
         }
       }
+      $hooks->action("session_auth");
     }
   }
 ?>
