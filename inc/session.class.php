@@ -12,7 +12,7 @@
       }
     }
     function authorize() {
-      global $db;
+      global $db, $hooks;
       if(isset($_SESSION["username"]) && isset($_SESSION["password"])) {
         $tu = $db->real_escape_string($_SESSION["username"]);
         if($result = $db->query("SELECT * FROM users WHERE username='{$tu}'")) {
@@ -25,7 +25,7 @@
             if($_SESSION["password"] == md5($test->password)) {
               $this->user = new User;
               $this->user->generate($test);
-              $this->update_activity();
+              //$this->update_activity();
             } else {
               unset($_SESSION["username"]);
               unset($_SESSION["password"]);
@@ -38,6 +38,7 @@
       } else {
         $this->user = new User;
       }
+      $hooks->action("session_auth");
     }
   }
 ?>
