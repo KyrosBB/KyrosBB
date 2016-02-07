@@ -33,7 +33,26 @@
           $return = $this->category[$i]["view"];
         }
       }
-      
+      return $return;
+    }
+    function post_category($i) {
+      // Get the global permission first.
+      $return = $this->category["*"]["post"];
+      if(array_key_exists($i,$this->category)) {
+        if(array_key_exists("post", $this->category[$i])) {
+          $return = $this->category[$i]["post"];
+        }
+      }
+      return $return;
+    }
+    function reply_category($i) {
+      // Get the global permission first.
+      $return = $this->category["*"]["reply"];
+      if(array_key_exists($i,$this->category)) {
+        if(array_key_exists("reply", $this->category[$i])) {
+          $return = $this->category[$i]["reply"];
+        }
+      }
       return $return;
     }
   }

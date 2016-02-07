@@ -1,0 +1,5 @@
+Account.banned:false
+Admin.view:false
+Category.*.view:false
+Category.*.post:false
+Category.*.reply:false
