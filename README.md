@@ -8,6 +8,7 @@
  - Added hooks.
    - KyrosBB ships with one default hook file (`hooks/usersOnline.hook.php`).
      - This hook adds the "Online Users" block in the sidebar. To remove this block, simply remove this hook file.
+ - Revamped the permission system for ease of adding/removing permissions in the AdminCP.
 - 0.4
  - Adds categories for posting, with a default category of "General Discussions"
  - Adds a permission system

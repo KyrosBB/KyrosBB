@@ -10,7 +10,7 @@
         <select class='form-control' id='inputCategory' name='inputCategory'>
 <?php
  foreach($categories as $cat) {
-   if($user->permissions->category_createTopic($cat->id)) {
+   if($user->permissions->post_category($cat->id)) {
 ?>
           <option value='<?php echo $cat->id; ?>'><?php echo $cat->name; ?></option>
 <?php

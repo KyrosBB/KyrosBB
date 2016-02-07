@@ -11,7 +11,7 @@
     $pcat = intval($pcat);
     if(!$ptitle||!$pcontent||$ptitle==""||$pcontent=="") {
       $form = true;
-    } else if(!$session->user->permissions->category_createTopic($pcat)) {
+    } else if(!$session->user->permissions->post_category($pcat)) {
       $form = true;
     } else {
       $ptitle = $db->real_escape_string($ptitle);
@@ -26,7 +26,7 @@
       $wrapper->breadcrumbs = array(array(true,"","Topic created"));
       $html->pushID = $tid;
       $html->pushTitle = $ptitle;
-      $wrapper->content = $html->render("{$themedir}forumTopicCreated.php");
+      $wrapper->content = $html->render($kyros->theme_dir ."forumTopicCreated.php");
     }
   } else {
     $form = true;
@@ -35,6 +35,6 @@
     $wrapper->breadcrumbs = array(
       array(true,"","Posting a new topic")
     );
-    $wrapper->content = $html->render("{$themedir}forumNewTopic.php");
+    $wrapper->content = $html->render($kyros->theme_dir ."forumNewTopic.php");
   }
 ?>

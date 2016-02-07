@@ -6,7 +6,7 @@
   if(!$id||$id<1) {
     $wrapper->breadcrumbs = array(array(true,"","Error"));
     $html->message = "An ID must be a valid integer greater than or equal to 1.";
-    $wrapper->content = $html->render("{$themedir}/error.php");
+    $wrapper->content = $html->render($kyros->theme_dir ."error.php");
     $continue = false;
   }
   if($continue) {
@@ -16,7 +16,7 @@
     if($result->num_rows < 1) {
       $wrapper->breadcrumbs = array(array(true,"","Error"));
       $html->message = "The requested topic doesn't exist.";
-      $wrapper->content = $html->render("{$themedir}/error.php");
+      $wrapper->content = $html->render($kyros->theme_dir ."error.php");
       $continue = false;
     } else {
       $topic = $result->fetch_array();
@@ -38,6 +38,6 @@
     $html->topic_name = $topic["b"];
     $html->topic_id = $topic["i"];
     $html->posts = $posts;
-    $wrapper->content = $html->render("{$themedir}forumTopic.php");
+    $wrapper->content = $html->render($kyros->theme_dir ."forumTopic.php");
   }
 ?>
