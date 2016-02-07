@@ -10,7 +10,7 @@
     function load() {
       global $root;
       $cfg = array();
-      include($root."cfg.php");
+      include("cfg.php");
       $this->vars = $cfg;
     }
   }
