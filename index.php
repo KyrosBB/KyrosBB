@@ -1,6 +1,7 @@
 <?php
   include("asset/class/kyros.php");
   include("asset/class/hooks.php");
+  include("asset/class/config.php");
   $kyros = new Kyros;
   $hooks = new Hooks;
 
