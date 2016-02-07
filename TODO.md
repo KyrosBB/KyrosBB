@@ -9,3 +9,4 @@
 - Check if we can post in **any** category before showing new topic button
   - Loop through all and see
   - New permission (General.Topic)
+- Implement the revamped Permission class when completed
