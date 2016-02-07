@@ -47,14 +47,12 @@
     <div class='container'>
       <div class='row'>
         <div class='col-md-3'>
-          <a class='btn btn-primary btn-block' href='<?php echo $site_dir; ?>?act=newtopic'>
-            New Topic
-          </a>
-          <br />
+          <?php echo $admin_button; ?>
+          <?php echo $topic_button; ?>
           <ol class='list-group'>
 <?php
   foreach($categories as $cat) {
-    if($user->permissions->category_view($cat->id)) {
+    if($user->permissions->view_category($cat->id)) {
 ?>
           <li class='list-group-item'>
             <a href='<?php echo $site_dir; ?>?cat=<?php echo $cat->id; ?>'><?php echo $cat->name; ?></a>
