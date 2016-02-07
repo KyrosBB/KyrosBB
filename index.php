@@ -2,9 +2,11 @@
   include("asset/class/kyros.php");
   include("asset/class/hooks.php");
   include("asset/class/config.php");
+  include("asset/class/session.php");
   $kyros = new Kyros;
   $hooks = new Hooks;
   $config = new Config;
+  $session = new Session;
 
   $config->load();
 
@@ -15,9 +17,7 @@
 
   include("inc/template.class.php");
   include("inc/user.class.php");
-  include("inc/session.class.php");
   include("inc/permission.class.php");
-  $session = new Session;
   $db = new mysqli(
     $config->sql_hostname,
     $config->sql_username,
