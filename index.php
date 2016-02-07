@@ -4,20 +4,20 @@
   include("asset/class/config.php");
   $kyros = new Kyros;
   $hooks = new Hooks;
+  $config = new Config;
+
+  $config->load();
 
   foreach(glob("hooks/*.hook.php") as $file) {
     include($file);
   }
 
 
-  include("inc/config.class.php");
   include("inc/template.class.php");
   include("inc/user.class.php");
   include("inc/session.class.php");
   include("inc/permission.class.php");
   $session = new Session;
-  $config = new Config;
-  $config->load();
   $db = new mysqli(
     $config->sql_hostname,
     $config->sql_username,
