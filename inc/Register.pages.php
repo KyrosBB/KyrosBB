@@ -25,11 +25,12 @@
       } else {
         $password = md5($password);
         $email = $db->real_escape_string($email);
-        if(!$result = $db->query("INSERT INTO users VALUES('','{$username}','{$password}','{$email}','{$config->default_perms}','0')")) {
+        if(!$result = $db->query("INSERT INTO users VALUES('','{$username}','{$password}','{$email}','0')")) {
           die($db->error);
         }
+        $kyros->create_permission($db->insert_id);
         $wrapper->breadcrumbs = array(array(true,"","Account Registered"));
-        $wrapper->content = $html->render("{$themedir}forumRegistered.php");
+        $wrapper->content = $html->render($kyros->theme_dir ."forumRegistered.php");
       }
     }
   } else {
@@ -37,6 +38,6 @@
   }
   if($form) {
     $wrapper->breadcrumbs = array(array(true,"","Register"));
-    $wrapper->content = $html->render("{$themedir}forumRegister.php");
+    $wrapper->content = $html->render($kyros->theme_dir ."forumRegister.php");
   }
 ?>

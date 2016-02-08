@@ -13,5 +13,15 @@
         return $this->choices[$k];
       }
     }
+    function create_permission($i) {
+      $p = file_get_contents("asset/perms/default.perm");
+      $handle = fopen("asset/perms/{$i}.perm", "w");
+      if($handle) {
+        fwrite($handle, $p);
+        fclose();
+      } else {
+        die("Cannot create permission file.");
+      }
+    }
   }
 ?>

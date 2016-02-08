@@ -21,6 +21,7 @@
             }
           }
         }
+        fclose($handle);
       } else {
         die("Unable to load permission file.");
       }
