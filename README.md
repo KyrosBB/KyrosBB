@@ -1,10 +1,9 @@
 # KyrosBB
 
-### Version: 0.5.0-dev
+### Version: 0.5.0
 
 ### Changelog
-- 0.5-dev
- - **This version is unstable!**
+- 0.5
  - Added hooks.
    - KyrosBB ships with one default hook file (`hooks/usersOnline.hook.php`).
      - This hook adds the "Online Users" block in the sidebar. To remove this block, simply remove this hook file.
