@@ -2,8 +2,10 @@
 <html lang='en'>
   <head>
     <title><?php echo $site_name; ?></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
     <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+    <link rel='stylesheet' href='themes/default/extra.css'>
   </head>
   <body>
     <div class='navbar navbar-default navbar-static-top'>
@@ -13,7 +15,7 @@
             <?php echo $site_name; ?>
           </a>
         </div>
-        <ul class='nav navbar-nav navbar-right'>
+        <ul class='nav navbar-nav navbar-right hidden-xs'>
 <?php
   if($user->id !== 0) {
 ?>
@@ -49,9 +51,37 @@
         </ul>
       </div>
     </div>
+    <div class='user-xs visible-xs-block'>
+      <div class='container'>
+<?php
+  if($user->id !== 0) {
+?>
+        <div class='pull-left'>
+          <?php echo $user->username; ?>
+        </div>
+        <div class='pull-right'>
+          <a href='<?php echo $site_dir; ?>?act=login'>Log Out</a>
+        </div>
+<?php
+  } else {
+?>
+        <div class='pull-left'>
+          <?php echo $user->username; ?>
+        </div>
+        <div class='pull-right'>
+          <a href='<?php echo $site_dir; ?>?act=login'>Log In</a> &middot;
+          <a href='<?php echo $site_dir; ?>?act=register'>Register</a>
+        </div>s
+<?php
+  }
+?>
+        
+        
+      </div>
+    </div>
     <div class='container'>
       <div class='row'>
-        <div class='col-md-3'>
+        <div class='col-md-3 hidden-xs'>
           <?php echo $admin_button; ?>
           <?php echo $topic_button; ?>
           <ol class='list-group'>
@@ -68,8 +98,8 @@
 ?>
           </ol>
           <?php $hooks->action("sidebar_end"); ?>
-        </div>
-        <div class='col-md-9'>
+        </div>        
+        <div class='col-md-9 col-xs-12'>
           <ol class='breadcrumb'>
             <li>
               <a href='<?php echo $site_dir; ?>'><?php echo $site_name; ?></a>
@@ -86,12 +116,16 @@
             <?php } ?>
             <?php } ?>
           </ol>
+          <div class='visible-xs-block text-right xs-buttons'>
+            <?php echo $kyros->theme->macros->xs_nt_button(); ?>
+          </div>
           <?php echo $content; ?>
         </div>
       </div>
       <div class='row'>
-        <div class='col-md-12'>
-          <div class='text-right'>
+        <div class='col-xs-12'>
+          <div class='copyright'>
+            Powered by <a href='http://www.avestri.co'>KyrosBB</a> <?php echo $kyros->version; ?>
           </div>
         </div>
       </div>

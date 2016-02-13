@@ -6,9 +6,11 @@
   include("asset/class/template.php");
   include("asset/class/user.php");
   include("asset/class/permissions.php");
+  include("asset/class/utility.php");
   $kyros = new Kyros;
   $hooks = new Hooks;
   $config = new Config;
+  $utility = new Utility;
   $config->load();
   $session = new Session;
   $db = new mysqli(
@@ -26,6 +28,10 @@
   $session->authorize();
   $session->user->permissions = new Permissions;
   $session->user->permissions->load($session->user->id);
+
+  $kyros->theme = $utility->load_theme();
+  $kyros->site_dir = $config->site_dir;
+
   $kyros->theme_dir = $config->theme_dir . $config->theme."/";
   $wrapper = new Template;
   $wrapper->admin_button = "";
@@ -58,6 +64,9 @@
     $wrapper->topic_button = $tmp->render($kyros->theme_dir ."sidebar/nt_button.php");
     unset($tmp);
   }
+
+  // Set wrapper reference to $kyros
   $wrapper->kyros = $kyros;
+
   echo $wrapper->render($kyros->theme_dir ."wrapper.php");
 ?>
