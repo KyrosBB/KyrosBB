@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 08, 2016 at 10:52 AM
+-- Generation Time: Feb 13, 2016 at 02:21 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -54,6 +54,20 @@ CREATE TABLE IF NOT EXISTS `t` (
   `aid` int(100) NOT NULL,
   PRIMARY KEY (`i`),
   KEY `i` (`i`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `themes`
+--
+
+CREATE TABLE IF NOT EXISTS `themes` (
+  `id` int(100) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `default` int(1) NOT NULL DEFAULT '0',
+  `folder` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
