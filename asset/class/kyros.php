@@ -1,6 +1,7 @@
 <?php
   class Kyros {
     private $choices = array("idx"=>"asset/pages/boardindex","login"=>"inc/Login.pages","newtopic"=>"inc/PostTopic.pages","register"=>"inc/Register.pages","reply"=>"inc/PostReply.pages","ST"=>"inc/ShowTopic.pages");
+    public $version = "0.6.0-dev";
     function add_act($k,$v) {
       if(!array_key_exists($k, $this->choices)) {
         $this->choices[$k] = $v;
