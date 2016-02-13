@@ -58,5 +58,6 @@
     $wrapper->topic_button = $tmp->render($kyros->theme_dir ."sidebar/nt_button.php");
     unset($tmp);
   }
+  $wrapper->kyros = $kyros;
   echo $wrapper->render($kyros->theme_dir ."wrapper.php");
 ?>
