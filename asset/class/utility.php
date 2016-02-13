@@ -8,7 +8,7 @@
       } else {
         if($result = $db->query("SELECT * FROM themes WHERE `default`='1'")) {
           $return = $result->fetch_object();
-          include("/themes/{$return->folder}/macros.php");
+          include("themes/{$return->folder}/macros.php");
           $return->macros = new Macros;
         } else {
           die($db->error);
