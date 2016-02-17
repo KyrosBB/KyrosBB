@@ -34,6 +34,7 @@
 
   $kyros->theme_dir = $config->theme_dir . $config->theme."/";
   $wrapper = new Template;
+  $wrapper->sidebar = true;
   $wrapper->admin_button = "";
   $wrapper->topic_button = "";
   $wrapper->hooks = $hooks;

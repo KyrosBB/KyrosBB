@@ -81,6 +81,7 @@
     </div>
     <div class='container'>
       <div class='row'>
+<?php if($sidebar) { ?>
         <div class='col-md-3 hidden-xs'>
           <?php echo $admin_button; ?>
           <?php echo $topic_button; ?>
@@ -100,6 +101,9 @@
           <?php $hooks->action("sidebar_end"); ?>
         </div>        
         <div class='col-md-9 col-xs-12'>
+<?php } else { ?>
+        <div class='col-xs-12'>
+<?php } ?>
           <ol class='breadcrumb'>
             <li>
               <a href='<?php echo $site_dir; ?>'><?php echo $site_name; ?></a>
