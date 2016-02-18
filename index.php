@@ -7,8 +7,10 @@
   include("asset/class/user.php");
   include("asset/class/permissions.php");
   include("asset/class/utility.php");
+  include("asset/class/display.php");
   include("asset/class/router.php");
-  $router = new Router;
+  $display = new Display;
+  $router  = new Router;
   $kyros = new Kyros;
   $hooks = new Hooks;
   $config = new Config;
@@ -70,6 +72,7 @@
     $wrapper->topic_button = $tmp->render($kyros->theme_dir ."sidebar/nt_button.php");
     unset($tmp);
   }
+  include($router->routeURI());
 
   // Set wrapper reference to $kyros
   $wrapper->kyros = $kyros;
