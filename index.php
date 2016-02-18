@@ -7,6 +7,8 @@
   include("asset/class/user.php");
   include("asset/class/permissions.php");
   include("asset/class/utility.php");
+  include("asset/class/router.php");
+  $router = new Router;
   $kyros = new Kyros;
   $hooks = new Hooks;
   $config = new Config;
@@ -30,6 +32,7 @@
   $session->user->permissions->load($session->user->id);
 
   $kyros->theme = $utility->load_theme();
+  $router->build();
   $kyros->site_dir = $config->site_dir;
 
   $kyros->theme_dir = $config->theme_dir . $config->theme."/";
@@ -49,6 +52,8 @@
     die($db->error);
   }
   $wrapper->categories = $categories;
+  $router->base_routes();
+  $router->find_route();
   $act = isset($_GET["act"]) ? $_GET["act"] : "idx";
   $act = isset($_POST["act"]) ? $_POST["act"] : $act;
   include($kyros->get_act($act) .".php");
