@@ -11,6 +11,7 @@
       $build .= $this->gravatar;
       $build .= "/?s=". $s;
       $build .= "'";
+      $extra['title'] = $this->username;
       foreach($extra as $key=>$val) {
         $build .= " {$key}='{$val}'";
       }
