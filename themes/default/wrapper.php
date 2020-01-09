@@ -81,7 +81,10 @@
     </div>
     <div class='container'>
       <div class='row'>
-<?php if($sidebar) { ?>
+<?php
+  if($sidebar) {
+    $html = "";
+?>
         <div class='col-md-3 hidden-xs'>
           <?php echo $admin_button; ?>
           <?php echo $topic_button; ?>
@@ -89,19 +92,13 @@
 <?php
   foreach($categories as $cat) {
     if($user->permissions->view_category($cat->id) == "true") {
-?>
-          <li class='list-group-item'>
-            <a href='<?php echo $site_dir; ?>?cat=<?php echo $cat->id; ?>'><?php echo $cat->name; ?></a>
-          </li>
-<?php
+
+        $html .= "<li class='list-group-item'><a href='". $site_dir ."?cat=". $cat->id ."'>". $cat->name ."</a></li>";
+      }
     }
-  }
-?>
-          </ol>
-          <?php $hooks->action("sidebar_end"); ?>
-<?php
-    $html = "<% USERS_ONLINE %>";
+    $html .= "</ol><% USERS_ONLINE %>";
     echo $hooks->filter("sidebar", $html);
+    unset($html);
 ?>
         </div>        
         <div class='col-md-9 col-xs-12'>

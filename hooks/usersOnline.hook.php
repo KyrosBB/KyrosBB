@@ -33,9 +33,10 @@
       die("We hit a snag... UOPlugin #1");
     }
     $html .= "</div></div>";
-    if($c >= 1) {
-      $h = str_replace("<% USERS_ONLINE %>", $html, $h);
+    if($c <1) {
+      $html = "";
     }
+    $h = str_replace("<% USERS_ONLINE %>", $html, $h);      
     return $h;
   }
   $hooks->add_action("session_auth", "Update_Session");
