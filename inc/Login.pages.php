@@ -1,5 +1,6 @@
 <?php
   if($session->user->id >= 1) {
+    $hooks->action("session_deauth");
     unset($_SESSION["username"]);
     unset($_SESSION["password"]);
     $session->user = new User;
