@@ -9,18 +9,18 @@
     }
   }
   function Remove_Session() {
-      global $session, $db;
-      if($session->user->id !== 0) {
-          $sql = "UPDATE users SET activity='0' WHERE id=". $session->user->id;
-          if(!$result = $db->query($sql)) {
-              die($db->error);
-          }
+    global $session, $db;
+    if($session->user->id !== 0) {
+      $sql = "UPDATE users SET activity='0' WHERE id=". $session->user->id;
+      if(!$result = $db->query($sql)) {
+        die($db->error);
       }
+    }
   }
-  function Sidebar_UoBox() {
+  function Sidebar_UoBox($h) {
     global $db;
     $c = 0;
-    $html = "<div class='panel panel-default'><div class='panel-heading'>Online Users</div><div class='panel-body'>";
+    $html = "<div class='panel panel-default oulist'><div class='panel-heading'>Online Users</div><div class='panel-body'>";
     $timeout = (time() - (60*15));
     if($result = $db->query("SELECT * FROM users WHERE activity > {$timeout}")) {
       $c = $result->num_rows;
@@ -34,10 +34,11 @@
     }
     $html .= "</div></div>";
     if($c >= 1) {
-        echo $html;
+      $h = str_replace("<% USERS_ONLINE %>", $html, $h);
     }
+    return $h;
   }
   $hooks->add_action("session_auth", "Update_Session");
   $hooks->add_action("session_deauth", "Remove_Session");
-  $hooks->add_action("sidebar_end", "Sidebar_UoBox");
+  $hooks->add_filter("sidebar", "Sidebar_UoBox");
 ?>
