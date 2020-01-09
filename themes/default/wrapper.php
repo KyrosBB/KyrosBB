@@ -1,22 +1,7 @@
-<!DOCTYPE html>
-<html lang='en'>
-  <head>
-    <title><?php echo $site_name; ?></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
-    <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
-    <link rel='stylesheet' href='themes/default/extra.css'>
-  </head>
-  <body>
-    <div class='navbar navbar-default navbar-static-top'>
-      <div class='container'>
-        <div class='navbar-header'>
-          <a href='<?php echo $site_dir; ?>' class='navbar-brand'>
-            <?php echo $site_name; ?>
-          </a>
-        </div>
-        <ul class='nav navbar-nav navbar-right hidden-xs'>
 <?php
+  $html = "<!DOCTYPE html><html lang='en'><head><title>". $site_name ."</title><meta name='viewport' content='width=device-width, initial-scale=1'><link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'><script src='//code.jquery.com/jquery-1.12.0.min.js'></script><link rel='stylesheet' href='themes/default/extra.css'></head><body><div class='navbar navbar-default navbar-static-top'><div class='container'><div class='navbar-header'><a href='". $site_dir ."' class='navbar-brand'>". $site_name ."</a></div><ul class='nav navbar-nav navbar-right hidden-xs'>";
+  echo $html;
+
   if($user->id !== 0) {
 ?>
           <li class='dropdown'>
