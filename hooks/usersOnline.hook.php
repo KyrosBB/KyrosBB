@@ -27,7 +27,7 @@
       while($row = $result->fetch_object()) {
         $tmp = new User;
         $tmp->generate($row);
-        $html .= $tmp->generate_avatar(25);
+        $html .= $tmp->generate_avatar(35);
       }
     } else {
       die("We hit a snag... UOPlugin #1");
