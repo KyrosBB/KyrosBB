@@ -99,6 +99,10 @@
 ?>
           </ol>
           <?php $hooks->action("sidebar_end"); ?>
+<?php
+    $html = "<% USERS_ONLINE %>";
+    echo $hooks->filter("sidebar", $html);
+?>
         </div>        
         <div class='col-md-9 col-xs-12'>
 <?php } else { ?>
